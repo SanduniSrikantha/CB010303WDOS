@@ -17,7 +17,7 @@
                 <nav class="NavBar">
                     <!--Navigation bar LOGO-->
                     <div class="logo">
-                        <img src="images/Nav_Bar.png">
+                        <img src="Images/Nav_Bar.png">
                     </div>
                         <!--class assigned for elements individually-->
                         <ul class="NavElements">
@@ -47,7 +47,7 @@
                         <!--FIRST-->
                         <div class="column">
                             <div class="card">
-                                <img src="images/Activity1.jpg" alt="" style="width:100%">
+                                <img src="images/Activity1.jpg" alt="" style="width:100%" class="AcImg">
                                 <div class="content">
                                     <h2>HOP ON A TRAIN</h2>
                                     <h4>Location: Kandy</h4>
@@ -63,7 +63,7 @@
                         <!--SECOND-->
                         <div class="column">
                             <div class="card">
-                                <img src="images/Activity2.jpg" alt="" style="width:100%">
+                                <img src="images/Activity2.jpg" alt="" style="width:100%" class="AcImg">
                                 <div class="content">
                                     <h2>HOT AIR BALOONING</h2>
                                     <h4>Location: Kandalama</h4>
@@ -80,7 +80,7 @@
                     <div class="row">
                         <div class="column">
                             <div class="card">
-                                <img src="images/Activity3.webp" alt="" style="width:100%">
+                                <img src="images/Activity3.webp" alt="" style="width:100%" class="AcImg">
                                 <div class="content">
                                     <h2>WHITE WATER RAFTING</h2>
                                     <h4>Location: Kithulgala</h4>
@@ -97,7 +97,7 @@
                         <!--FOURTH-->
                         <div class="column">
                             <div class="card">
-                                <img src="images/Activity4.webp" alt="" style="width:100%">
+                                <img src="images/Activity4.webp" alt="" style="width:100%" class="AcImg">
                                 <div class="content">
                                     <h2>SCUBA DIVING</h2>
                                     <h4>Location: Nilaveli</h4>
@@ -114,6 +114,170 @@
                 
                 </div>
             </main>
+
+            
+<!----------------------------------------------------FORM------------------------------------------------------------------>
+        <section>
+            <div class="containerform" class="booking-form" id="boxform">
+                <form  class="contact-col frmtickets" id="purchaseForm">
+                    <div class="row">
+                        <div class="col-25">
+                          <label for="ticketChoice">Choice of Ticket</label>
+                        </div>
+                        <div class="col-75">
+                            <select name="cmbChoice" id="ticketChoice" class="select__item" onchange="calculateCost();">
+                                <option value="" selected disabled>Select Ticket Category</option>
+                                <option value="0">Foreign Adult Pass</option>
+                                <option value="1">Foreign Child Pass</option>
+                                <option value="2">Local Adult Pass</option>
+                                <option value="2">Local Child Pass</option>
+                                <option value="2">Annual Pass-Foreign</option>
+                                <option value="2">Annual pass-Local</option>
+                            </select>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-25">
+                            <span>Duration</span>
+                            <label for=""></label>
+                        </div>
+                        <!--ADD-->
+                        <div class="col-75">
+                            <select name="duration" id="duration" class="select__item" onchange="calculateCost();">
+                                <option value="" selected disabled>Select the duration</option>
+                                <option value="0">3 hours</option>
+                                <option value="1">½ day</option>
+                                <option value="2">full day</option>
+                                <option value="3">2 days</option>
+                            </select>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-25">
+                          <label for="noOfTickets">Number of Tickets</label>
+                        </div>
+                        <div class="col-75">
+                            <input id="numOfTickets" name="numOfTickets" min="0" type="number" placeholder="Enter Number of Tickets" onblur="calculateCost();">
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-25">
+                            <label for="date" class="lbdate">Input the check-in date.</label>
+                        </div>
+                        <div class="col-75">
+                            <input type="date" id="date"  name="date">
+                        </div>
+                      </div>
+
+                      <!----SHOW/HIDE-->
+
+                      <lable for ="optional">
+                        <input type="checkbox" id="optional" class="option-input radio" onclick="extras();">
+                        Extras : 
+                        </lable>
+                        <div id="divExtras" style="display: none;">
+                            
+                    Food Token :
+                    <input type="number" min="0" size="5" id="numOfTokens" name="foodTokens" onblur="calculateCost();">
+
+                </div>
+
+
+
+
+
+
+                          <br/>
+                          <div class="alert" style="display: none;"></div>
+                          <br/>
+                          <div class="spanstyl">
+                            Cost : LKR <span id="spCost">0.00</span>
+                          </div>
+
+                          <p> **Note: For children under age 3, entrance is free.</p>
+
+
+
+
+            
+
+
+
+
+
+
+
+                
+                      
+                        <div class="row">
+                            <div class="col-25">
+                                <input type="button" id="addOrbtn" value="Add to Order" onclick="addToOrder();">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-25">
+                                <div class="alert">
+                                    <input type="button" value="Add to Favourites" id="addFavourite" name="addFavourite">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="containerform">
+
+                    
+                        <div class="row">
+                            <div class="col-25">
+                                <input type="button" id="retrieveFavourite" name="retrieveFavourite" value="Order Favourites"><br>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-25">
+                                <input type="button" value="Check Loyalty" onclick="showLoyaltyPoints()">
+                            </div>
+                        </div>                        
+
+                    </div>           
+                    
+                </form>
+
+                    <div id="divAddOrder" style="display: none;">
+                        <hr />
+                        <h1>Overall Order</h1>
+                        <div class="test">
+                        <table border="2" width="75%" align ="center" id="tbl_order">
+                            <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Number of Passes</th>
+                                    <th>Duration</th>
+                                    <th>Food Tokens</th>
+                                    <th>Total</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody id="tbody_update"></tbody>
+                            <tfoot>
+                                <tr>
+                                    <th colspan="4">Grand Total</th>
+                                    <th colspan="1" id="GrandTot">0.00</th>
+                                    <th></th>
+                                </tr>
+                            </tfoot>
+                        </table>
+                        <br/>
+                        <br/>
+                        </div>
+                          <input type="button" value="Place Order" id="placeOrder" onclick="placeOrder();">
+                       </div>
+                    </div>
+            </section>
+                
+                  
+            
+
+<!-------------------------------------------------------FORM END-------------------------------------------------------------------------------->
+
+
              <!--Links for 2 HERITAGE SITES-->
              <div id="HeritageLinks">
                 <h1>Interested in Other Locations?</h1>
@@ -153,4 +317,5 @@
             </nav>
         </footer>   
     </body>
+    <script src="activities.js"></script>
 </html>
